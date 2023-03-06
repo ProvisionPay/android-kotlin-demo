@@ -7,13 +7,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import com.example.entegrationdeeplink.service.DeeplinkApi
 import com.provisionpay.android.deeplinksdk.*
 import com.provisionpay.android.deeplinksdk.broadcastReceiver.BroadcastReceiverListener
 import com.provisionpay.android.deeplinksdk.model.*
 
 
-class PaymentFragment : Fragment() , IDeeplinkHostListener {
+class PaymentFragment : Fragment()  {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +37,7 @@ class PaymentFragment : Fragment() , IDeeplinkHostListener {
         SoftposDeeplinkSdk.setDebugMode(true)
 
         paymentButton.setOnClickListener(View.OnClickListener {
-            DeeplinkApi("your_url_service",this).callAuthenticateAndCreatePaymentSessionService()
+         SoftposDeeplinkSdk.startPayment("your_paymentSessionTokenId","your_deeplink_url")
         })
 
         SoftposDeeplinkSdk.subscribe(object : SoftposDeeplinkSdkListener{
@@ -90,15 +89,5 @@ class PaymentFragment : Fragment() , IDeeplinkHostListener {
 
     override fun onPause() {
         super.onPause()
-        SoftposDeeplinkSdk.unregisterBroadcastReceiver()
-    }
-
-    override fun onCallSoftPosEvent(paymentSessionToken: String?) {
-        //start deeplink payment
-        SoftposDeeplinkSdk.startPayment("your_paymentSessionToken")}
-
-    override fun onError(error: String?) {
-        TODO("Not yet implemented")
-    }
-
+        SoftposDeeplinkSdk.unregisterBroadcastReceiver() }
 }
