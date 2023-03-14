@@ -1,12 +1,14 @@
-package com.example.entegrationdeeplink
+package com.provisionpay.kotlindemo
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import com.example.entegrationdeeplink.R
 import com.provisionpay.android.deeplinksdk.*
 import com.provisionpay.android.deeplinksdk.broadcastReceiver.BroadcastReceiverListener
 import com.provisionpay.android.deeplinksdk.model.*
@@ -23,6 +25,7 @@ class PaymentFragment : Fragment()  {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_payment, container, false)
 
@@ -33,16 +36,16 @@ class PaymentFragment : Fragment()  {
         val paymentButton = view.findViewById<Button>(R.id.paymentButton)
         val amountText = view.findViewById<EditText>(R.id.amountText)
 
-        SoftposDeeplinkSdk.initialize(InitializeConfig("your_privateKey",this.requireActivity(),"your deeplinkUrl"))
+        SoftposDeeplinkSdk.initialize(InitializeConfig("3Ws4QMv7u4cl4Tey8UtY7XFlvV7EBOcC",this.requireActivity(),"https://www.provisionpay.com"))
         SoftposDeeplinkSdk.setDebugMode(true)
 
         paymentButton.setOnClickListener(View.OnClickListener {
-         SoftposDeeplinkSdk.startPayment("your_paymentSessionTokenId","your_deeplink_url")
+         SoftposDeeplinkSdk.startPayment("D320F0B13B627E55","https://www.provisionpay.com")
         })
 
         SoftposDeeplinkSdk.subscribe(object : SoftposDeeplinkSdkListener{
             override fun onCancel() {
-                TODO("Not yet implemented")
+                Log.d("RESPONSE","transaction.Receipt.toString()")
             }
 
             override fun onError(e: Throwable) {
@@ -58,7 +61,7 @@ class PaymentFragment : Fragment()  {
             }
 
             override fun onPaymentDone(transaction: Transaction, isApproved: Boolean) {
-                TODO("Not yet implemented")
+                Log.d("RESPONSE",transaction.Receipt.toString())
             }
 
             override fun onSoftposError(errorType: SoftposErrorType, description: String?) {
@@ -80,14 +83,14 @@ class PaymentFragment : Fragment()  {
                 ) {
                     TODO("Not yet implemented")
                 }
-
             }
         )
-
-
     }
 
     override fun onPause() {
         super.onPause()
-        SoftposDeeplinkSdk.unregisterBroadcastReceiver() }
+        SoftposDeeplinkSdk.unregisterBroadcastReceiver()
+    }
+
+
 }

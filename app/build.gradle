@@ -4,8 +4,8 @@ plugins {
 }
 
 android {
-    namespace 'com.example.entegrationdeeplink'
-    compileSdk 32
+    namespace 'com.provisionpay.kotlindemo'
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.entegrationdeeplink"
@@ -17,15 +17,6 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    flavorDimensions "bank"
-
-    productFlavors {
-        provision {
-            dimension "bank"
-            manifestPlaceholders = [deepLinkHost: "provisionpay.com", deepLinkPathPrefix: "/receipt"]
-            versionName "1.0.0"
-        }
-    }
     buildTypes {
         release {
             minifyEnabled false
@@ -54,4 +45,5 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:2.9.0"
     //implementation android deeplinkSdk
     implementation("com.provisionpay:android-deeplink-sdk:1.0.6")
+
 }

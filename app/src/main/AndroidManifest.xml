@@ -18,15 +18,12 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="https" />
                 <data
-                    android:host="${deepLinkHost}"
-                    android:pathPrefix="${deepLinkPathPrefix}"/>
+                    android:host="provisionpay.com"
+                    android:pathPrefix="/receipt"/>
             </intent-filter>
-
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
