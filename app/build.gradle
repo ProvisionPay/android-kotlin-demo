@@ -19,9 +19,9 @@ android {
     signingConfigs {
         config {
             keyAlias 'kotlindemo'
-            keyPassword 'Provision1314'
+            keyPassword 'kotlindemo'
             storeFile file('../keys/keys.jks')
-            storePassword 'Provision1314'
+            storePassword 'kotlindemo'
             v1SigningEnabled true
             v2SigningEnabled true
         }
