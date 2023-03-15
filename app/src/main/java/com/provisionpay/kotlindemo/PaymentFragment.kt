@@ -36,11 +36,11 @@ class PaymentFragment : Fragment()  {
         val paymentButton = view.findViewById<Button>(R.id.paymentButton)
         val amountText = view.findViewById<EditText>(R.id.amountText)
 
-        SoftposDeeplinkSdk.initialize(InitializeConfig("3Ws4QMv7u4cl4Tey8UtY7XFlvV7EBOcC",this.requireActivity(),"https://www.provisionpay.com"))
+        SoftposDeeplinkSdk.initialize(InitializeConfig("your_private_key","your_activity","your_softpos_url"))
         SoftposDeeplinkSdk.setDebugMode(true)
 
         paymentButton.setOnClickListener(View.OnClickListener {
-         SoftposDeeplinkSdk.startPayment("D320F0B13B627E55","https://www.provisionpay.com")
+         SoftposDeeplinkSdk.startPayment("your_paymentSessionTokenId","your_softpos_url")
         })
 
         SoftposDeeplinkSdk.subscribe(object : SoftposDeeplinkSdkListener{
@@ -74,7 +74,7 @@ class PaymentFragment : Fragment()  {
 
         })
 
-        SoftposDeeplinkSdk.registerBroadcastReceiver("info@payneos.com",
+        SoftposDeeplinkSdk.registerBroadcastReceiver("your_packageId",
             object : BroadcastReceiverListener {
                 override fun onSoftposBroadcastReceived(
                     eventType: Int,
