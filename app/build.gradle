@@ -16,7 +16,16 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    signingConfigs {
+        config {
+            keyAlias 'kotlindemo'
+            keyPassword 'Provision1314'
+            storeFile file('../keys/keys.jks')
+            storePassword 'Provision1314'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false

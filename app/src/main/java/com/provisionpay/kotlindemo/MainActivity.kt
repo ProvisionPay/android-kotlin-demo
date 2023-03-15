@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.entegrationdeeplink.R
 import com.provisionpay.android.deeplinksdk.SoftposDeeplinkSdk
 
 class MainActivity : AppCompatActivity() {

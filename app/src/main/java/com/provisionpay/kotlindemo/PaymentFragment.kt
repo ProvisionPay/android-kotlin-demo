@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import com.example.entegrationdeeplink.R
 import com.provisionpay.android.deeplinksdk.*
 import com.provisionpay.android.deeplinksdk.broadcastReceiver.BroadcastReceiverListener
 import com.provisionpay.android.deeplinksdk.model.*
@@ -36,7 +35,7 @@ class PaymentFragment : Fragment()  {
         val paymentButton = view.findViewById<Button>(R.id.paymentButton)
         val amountText = view.findViewById<EditText>(R.id.amountText)
 
-        SoftposDeeplinkSdk.initialize(InitializeConfig("your_private_key","your_activity","your_softpos_url"))
+        SoftposDeeplinkSdk.initialize(InitializeConfig("your_private_key",this.requireActivity(),"your_softpos_url"))
         SoftposDeeplinkSdk.setDebugMode(true)
 
         paymentButton.setOnClickListener(View.OnClickListener {
