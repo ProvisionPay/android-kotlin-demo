@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:clickable="false"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:id="@+id/rowContainer"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:paddingBottom="5dp"
+            android:id="@+id/caption"
+            android:text="Caption"
+            android:layout_marginLeft="15dp" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:gravity="end"
+            android:layout_marginEnd="15dp"
+            android:layout_marginTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:id="@+id/label"
+            android:text="label"
+            android:layout_marginRight="15dp" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_below="@+id/rowContainer"
+        android:background="#C3C3C3" />
+</RelativeLayout>
