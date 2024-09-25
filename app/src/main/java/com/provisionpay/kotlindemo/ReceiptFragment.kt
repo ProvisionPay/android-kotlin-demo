@@ -45,12 +45,12 @@ class ReceiptFragment(var transaction: Transaction?) :DialogFragment() {
     private fun createPaymentDoneReceipt(paymentResponse: Transaction): ArrayList<ReceiptRowItem>{
         val list = ArrayList<ReceiptRowItem>()
 
-        paymentResponse.Receipt?.Detail?.forEach { item ->
-            val isApproved = item.Key == "Status" && paymentResponse.Receipt!!.Approved
+        paymentResponse.Receipt.Detail?.forEach { item ->
+            val isApproved = item.Key == "Status" && paymentResponse.Receipt.Approved
             list.add(
                 ReceiptRowItem(
                     caption = item.Key,
-                    label = item.Value
+                    label = item.Value ?: ""
                 )
             )
         }
